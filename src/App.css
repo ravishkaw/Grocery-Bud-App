@@ -1,42 +1,72 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+}
+
+.container {
+  width: 80vw;
+  max-width: 700px;
+  margin: 5rem auto;
+  padding: 1rem 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+.title {
   text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 400;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.form {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="text"] {
+  border: 1px solid #e2e8f0;
+  outline: none;
+  border-right: none;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  padding: 0 0.5rem;
+  width: 70%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.3rem;
 }
 
-.card {
-  padding: 2em;
+.btn-add {
+  background-color: #06b6d4;
+  color: white;
+  border-top-left-radius: 0rem;
+  border-bottom-left-radius: 0rem;
 }
 
-.read-the-docs {
-  color: #888;
+.item-container {
+  margin: 1rem auto;
+  max-width: 500px;
+}
+
+.single-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.btn-del {
+  color: white;
+  background-color: #222222;
 }

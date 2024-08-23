@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Form from "./components/Form";
 
-function App() {
-  const [count, setCount] = useState(0)
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
+import { ToastContainer } from "react-toastify";
+import Item from "./components/Item";
+import { nanoid } from "nanoid";
+
+const App = () => {
+  const [items, setItems] = useState([]);
+
+  const addItems = (item) => {
+    const newItem = {
+      name: item,
+      completed: false,
+      id: nanoid(),
+    };
+    setItems((prevItems) => {
+      return [...prevItems, newItem];
+    });
+  };
+
+  const deleteItems = (id) => {
+    const newList = items.filter((item) => item.id != id);
+    setItems(newList);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+    <main className="container">
+      <h1 className="title">Grocery Bud</h1>
+      <Form addItems={addItems} />
+      <Item items={items} deleteItems={deleteItems} />
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        pauseOnHover={false}
+      />
+    </main>
+  );
+};
+export default App;
